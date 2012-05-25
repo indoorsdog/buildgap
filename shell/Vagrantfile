@@ -1,0 +1,69 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+  config.vm.box = "buildgap-shell"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  config.vm.provision :chef_solo do |chef|
+    chef.log_level = :debug
+
+    chef.cookbooks_path = "../development/chef-repo/cookbooks"
+
+    chef.add_recipe "buildgap-shell::git"
+
+    chef.add_recipe "build-essential"
+
+    # http://grahamwideman.wikispaces.com/Python-+import+statement
+    # pip install -r requirements.txt
+    chef.add_recipe "python::source"
+    chef.add_recipe "python::pip"
+    chef.add_recipe "python::virtualenv"
+    chef.add_recipe "buildgap-shell::python"
+
+    # package.json
+    # npm install -d
+    chef.add_recipe "node"
+
+    # todo version info for ruby_build in attributes
+    chef.add_recipe "rbenv::system_install"
+    chef.add_recipe "rbenv::ohai_plugin"
+    chef.add_recipe "buildgap-shell::ruby"
+
+    chef.add_recipe "java"
+
+    chef.add_recipe "gradle::tarball"
+
+    # http://www.dagolden.com/index.php/1528/five-ways-to-install-modules-prereqs-by-hand/
+    chef.add_recipe "perlbrew"
+    chef.add_recipe "buildgap-shell::perl"
+
+    chef.json = {
+    	"python" => {
+        "version" => "2.7.3",
+        "distribute_install_py_version" => "2.7"
+      },
+      "git" => {
+        "version" => "1:1.7.9.5-1"
+      },
+      "node" => {
+        "version" => "v0.6.17"
+      },
+      "java" => {
+        "install_flavor" => "openjdk",
+        "jdk_version" => "7"
+      },
+      "gradle" => {
+        "version" => "1.0-rc-3",
+        "tarball" => {
+          "url" => "http://downloads.gradle.org/distributions/gradle-1.0-rc-3-bin.zip"
+        }
+      },
+      "perlbrew" => {
+        "perlbrew_root" => "/home/vagrant/perlbrew",
+        "perls" => ["perl-5.14.2"]
+      }
+    }
+  end
+
+end
