@@ -20,4 +20,4 @@ cookbook 'python'
 
 cookbook 'buildgap-shell' ,
   :git => "http://github.com/indoorsdog/buildgap-shell",
-  :path => "chef/cookbooks"
+  :path => "chef/cookbooks/buildgap-shell"
