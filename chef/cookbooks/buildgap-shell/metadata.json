@@ -33,7 +33,7 @@
     "buildgap-shell::packages": "description",
     "buildgap-shell::perl": "description",
     "buildgap-shell::python": "description",
-    "buildgap-shell::ruby": "description",
+    "buildgap-shell::ruby": "description"
   },
   "version": "0.0.1"
 }
