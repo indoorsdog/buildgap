@@ -1,0 +1,4 @@
+package "git" do
+	version node["git"]["version"]
+  	action :install
+end

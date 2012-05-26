@@ -1,0 +1,5 @@
+export PERLBREW_ROOT=<%= @perlbrew_root %>
+export PERLBREW_HOME=$PERLBREW_ROOT
+export PATH=$PERLBREW_ROOT/bin:$PATH
+source <%= @perlbrew_root %>/etc/bashrc
+perlbrew use perl-5.14.2

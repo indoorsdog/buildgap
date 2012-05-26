@@ -1,0 +1,11 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (1.0.0)
+    python (1.0.6)
+      build-essential (>= 0.0.0)
+
+DEPENDENCIES
+  build-essential (>= 0)
+  python (>= 0)
+
