@@ -19,5 +19,5 @@ cookbook 'build-essential'
 cookbook 'python'
 
 cookbook 'buildgap-shell' ,
-  :git => "http://github.com/indoorsdog/buildgap-shell",
+  :git => "https://github.com/indoorsdog/buildgap",
   :path => "chef/cookbooks/buildgap-shell"
