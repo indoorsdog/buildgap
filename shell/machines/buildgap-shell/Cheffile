@@ -17,3 +17,7 @@ site 'http://community.opscode.com/api/v1'
 cookbook 'build-essential'
 
 cookbook 'python'
+
+cookbook 'buildgap-shell' ,
+  :git => "http://github.com/indoorsdog/buildgap-shell",
+  :path => "chef/cookbooks"
