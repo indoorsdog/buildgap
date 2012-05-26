@@ -18,6 +18,18 @@ cookbook 'build-essential'
 
 cookbook 'python'
 
-cookbook 'buildgap-shell' ,
-  :git => "https://github.com/indoorsdog/buildgap",
-  :path => "chef/cookbooks/buildgap-shell"
+cookbook 'buildgap-shell',
+  :git => 'https://github.com/indoorsdog/buildgap',
+  :path => 'chef/cookbooks/buildgap-shell'
+
+cookbook 'node'
+
+cookbook 'rbenv'
+
+cookbook 'java',
+  :git => 'https://github.com/indoorsdog/fork_opscode-cookbooks_java'
+
+cookbook 'gradle',
+  :git => 'https://github.com/indoorsdog/fork_michaelklishin_gradle-chef-cookbook'
+
+cookbook 'perlbrew'

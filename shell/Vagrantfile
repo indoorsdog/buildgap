@@ -30,7 +30,7 @@ Vagrant::Config.run do |config|
 
     chef.cookbooks_path = "machines/buildgap-shell/cookbooks"
 
-#    chef.add_recipe "buildgap-shell::git"
+    chef.add_recipe "buildgap-shell::git"
 
     chef.add_recipe "build-essential"
 
@@ -39,24 +39,24 @@ Vagrant::Config.run do |config|
     chef.add_recipe "python::source"
     chef.add_recipe "python::pip"
     chef.add_recipe "python::virtualenv"
-#    chef.add_recipe "buildgap-shell::python"
+    chef.add_recipe "buildgap-shell::python"
 
     # package.json
     # npm install -d
-#    chef.add_recipe "node"
+    chef.add_recipe "node"
 
     # todo version info for ruby_build in attributes
-#    chef.add_recipe "rbenv::system_install"
-#    chef.add_recipe "rbenv::ohai_plugin"
-#    chef.add_recipe "buildgap-shell::ruby"
+    chef.add_recipe "rbenv::system_install"
+    chef.add_recipe "rbenv::ohai_plugin"
+    chef.add_recipe "buildgap-shell::ruby"
 
-#    chef.add_recipe "java"
+    chef.add_recipe "java"
 
-#    chef.add_recipe "gradle::tarball"
+    chef.add_recipe "gradle::tarball"
 
     # http://www.dagolden.com/index.php/1528/five-ways-to-install-modules-prereqs-by-hand/
-#    chef.add_recipe "perlbrew"
-#    chef.add_recipe "buildgap-shell::perl"
+    chef.add_recipe "perlbrew"
+    chef.add_recipe "buildgap-shell::perl"
 
     chef.json = {
     	"python" => {
