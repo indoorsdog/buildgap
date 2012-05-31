@@ -1,0 +1,39 @@
+{
+  "name": "buildgap-shell",
+  "description": "description",
+  "long_description": "long_description",
+  "maintainer": "maintainer",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "fedora": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "buildgap-shell::git": "description",
+    "buildgap-shell::packages": "description",
+    "buildgap-shell::perl": "description",
+    "buildgap-shell::python": "description",
+    "buildgap-shell::ruby": "description"
+  },
+  "version": "0.0.1"
+}
