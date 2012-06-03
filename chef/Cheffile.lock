@@ -2,11 +2,13 @@ SITE
   remote: http://community.opscode.com/api/v1
   specs:
     build-essential (1.0.0)
-    git (0.10.0)
+    dmg (1.0.0)
+    git (1.0.0)
+      dmg (>= 0.0.0)
       runit (>= 0.0.0)
       yum (>= 0.0.0)
-    node (0.0.6)
-      git (>= 0.0.0)
+    nodejs (0.6.11)
+      build-essential (>= 0.0.0)
     ohai (1.0.2)
     perlbrew (0.1.0)
     python (1.0.6)
@@ -33,9 +35,10 @@ GIT
 
 DEPENDENCIES
   build-essential (>= 0)
+  git (>= 0)
   gradle (>= 0)
   java (>= 0)
-  node (>= 0)
+  nodejs (>= 0)
   perlbrew (>= 0)
   python (>= 0)
   rbenv (>= 0)

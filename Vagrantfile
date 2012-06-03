@@ -52,7 +52,8 @@ Vagrant::Config.run do |config|
 
     # package.json
     # npm install -d
-    chef.add_recipe "node"
+    # http://tnovelli.net/blog/blog.2011-08-27.node-npm-user-install.html
+    chef.add_recipe "nodejs"
 
     # todo version info for ruby_build in attributes
     chef.add_recipe "rbenv::system_install"
@@ -67,6 +68,8 @@ Vagrant::Config.run do |config|
     chef.add_recipe "perlbrew"
     chef.add_recipe "buildgap::perl"
 
+    chef.add_recipe "cloud9"
+
     chef.json = {
     	"python" => {
         "version" => "2.7.3",
@@ -75,8 +78,8 @@ Vagrant::Config.run do |config|
       "git" => {
         "version" => "1:1.7.9.5-1"
       },
-      "node" => {
-        "version" => "v0.6.17"
+      "nodejs" => {
+        "version" => "0.6.18"
       },
       "java" => {
         "install_flavor" => "openjdk",
