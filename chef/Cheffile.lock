@@ -18,14 +18,6 @@ SITE
     yum (0.5.2)
 
 GIT
-  remote: https://github.com/indoorsdog/buildgap
-  path: chef/cookbooks/buildgap-shell
-  ref: master
-  sha: 6deea660deac3293e82860eb9635d1288e9203a9
-  specs:
-    buildgap-shell (0.0.1)
-
-GIT
   remote: https://github.com/indoorsdog/fork_michaelklishin_gradle-chef-cookbook
   ref: master
   sha: de368cac3e75ee783f47631a311caffb7cd66c26
@@ -41,7 +33,6 @@ GIT
 
 DEPENDENCIES
   build-essential (>= 0)
-  buildgap-shell (>= 0)
   gradle (>= 0)
   java (>= 0)
   node (>= 0)

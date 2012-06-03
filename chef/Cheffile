@@ -18,10 +18,6 @@ cookbook 'build-essential'
 
 cookbook 'python'
 
-cookbook 'buildgap-shell',
-  :git => 'https://github.com/indoorsdog/buildgap',
-  :path => 'chef/cookbooks/buildgap-shell'
-
 cookbook 'node'
 
 cookbook 'rbenv'

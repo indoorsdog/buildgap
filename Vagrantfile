@@ -14,56 +14,51 @@ rescue Gem::LoadError
   end
 end
 
-def ensure_directory_exists(directory_name)
-  Dir.mkdir(directory_name) unless File.exists?(directory_name)
-end
-
-ensure_directory_exists('/machines/buildgap-shell')
-
-
 Vagrant::Config.run do |config|
 
   config.vm.network :hostonly, '10.151.151.151', :netmask => '255.255.0.0'
-  config.vm.host_name = 'thisnode'
+  config.vm.host_name = 'buildgap'
 
-#require 'librarian/chef/cli'
-#cli = Librarian::Chef::Cli.new
-#cli.init
-#puts "inited..."
-
-
-  config.vm.box = "buildgap-shell"
+  config.vm.box = "buildgap"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-
   config.vm.provision :chef_solo do |chef|
+
     chef.log_level = :debug
 
-    chef.cookbooks_path = "machines/buildgap-shell/cookbooks"
+    require 'librarian/chef/cli'
 
-    chef.add_recipe "buildgap-shell::git"
+    puts Dir.pwd
+    Dir.chdir('chef')
+    cli = Librarian::Chef::Cli.new
+    cli.install
+    puts 'install'
 
-    chef.add_recipe "build-essential"
+    chef.cookbooks_path = ['chef/cookbooks', 'chef/site-cookbooks']
+
+    chef.add_recipe "buildgap::git"
+
+#    chef.add_recipe "build-essential"
 
     # http://grahamwideman.wikispaces.com/Python-+import+statement
     # pip install -r requirements.txt
-    chef.add_recipe "python::source"
-    chef.add_recipe "python::pip"
-    chef.add_recipe "python::virtualenv"
-    chef.add_recipe "buildgap-shell::python"
+#    chef.add_recipe "python::source"
+#    chef.add_recipe "python::pip"
+#    chef.add_recipe "python::virtualenv"
+#    chef.add_recipe "buildgap::python"
 
 #need PIL http://www.pythonware.com/products/pil/
 #member, sudo apt-get install python-dev
-    #chef.add_recipe "buildgap-shell::ide"
+    #chef.add_recipe "buildgap::ide"
 
     # package.json
     # npm install -d
-    chef.add_recipe "node"
+#    chef.add_recipe "node"
 
     # todo version info for ruby_build in attributes
 #    chef.add_recipe "rbenv::system_install"
 #    chef.add_recipe "rbenv::ohai_plugin"
-#    chef.add_recipe "buildgap-shell::ruby"
+#    chef.add_recipe "buildgap::ruby"
 
 #    chef.add_recipe "java"
 
@@ -71,7 +66,7 @@ Vagrant::Config.run do |config|
 
     # http://www.dagolden.com/index.php/1528/five-ways-to-install-modules-prereqs-by-hand/
 #    chef.add_recipe "perlbrew"
-#    chef.add_recipe "buildgap-shell::perl"
+#    chef.add_recipe "buildgap::perl"
 
     chef.json = {
     	"python" => {
