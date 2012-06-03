@@ -32,20 +32,19 @@ Vagrant::Config.run do |config|
     Dir.chdir('chef')
     cli = Librarian::Chef::Cli.new
     cli.install
-    puts 'install'
 
     chef.cookbooks_path = ['chef/cookbooks', 'chef/site-cookbooks']
 
     chef.add_recipe "buildgap::git"
 
-#    chef.add_recipe "build-essential"
+    chef.add_recipe "build-essential"
 
     # http://grahamwideman.wikispaces.com/Python-+import+statement
     # pip install -r requirements.txt
-#    chef.add_recipe "python::source"
-#    chef.add_recipe "python::pip"
-#    chef.add_recipe "python::virtualenv"
-#    chef.add_recipe "buildgap::python"
+    chef.add_recipe "python::source"
+    chef.add_recipe "python::pip"
+    chef.add_recipe "python::virtualenv"
+    chef.add_recipe "buildgap::python"
 
 #need PIL http://www.pythonware.com/products/pil/
 #member, sudo apt-get install python-dev
@@ -53,20 +52,20 @@ Vagrant::Config.run do |config|
 
     # package.json
     # npm install -d
-#    chef.add_recipe "node"
+    chef.add_recipe "node"
 
     # todo version info for ruby_build in attributes
-#    chef.add_recipe "rbenv::system_install"
-#    chef.add_recipe "rbenv::ohai_plugin"
-#    chef.add_recipe "buildgap::ruby"
+    chef.add_recipe "rbenv::system_install"
+    chef.add_recipe "rbenv::ohai_plugin"
+    chef.add_recipe "buildgap::ruby"
 
-#    chef.add_recipe "java"
+    chef.add_recipe "java"
 
-#    chef.add_recipe "gradle::tarball"
+    chef.add_recipe "gradle::tarball"
 
     # http://www.dagolden.com/index.php/1528/five-ways-to-install-modules-prereqs-by-hand/
-#    chef.add_recipe "perlbrew"
-#    chef.add_recipe "buildgap::perl"
+    chef.add_recipe "perlbrew"
+    chef.add_recipe "buildgap::perl"
 
     chef.json = {
     	"python" => {
