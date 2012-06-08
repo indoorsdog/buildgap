@@ -15,9 +15,9 @@ cookbook 'nodejs'
 cookbook 'rbenv'
 
 cookbook 'java',
-  :git => 'https://github.com/indoorsdog/fork_opscode-cookbooks_java'
+  :git => 'https://github.com/indoorsdog/_fork_opscode-cookbooks_java'
 
 cookbook 'gradle',
-  :git => 'https://github.com/indoorsdog/fork_michaelklishin_gradle-chef-cookbook'
+  :git => 'https://github.com/indoorsdog/_fork_michaelklishin_gradle-chef-cookbook'
 
 cookbook 'perlbrew'
